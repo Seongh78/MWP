@@ -1,0 +1,93 @@
+[
+
+  {
+    "id" : "/index",
+    "description": "메인페이지",
+    "resource" : [
+      {
+        "api" : "/",
+        "type" : {
+              "get": "메인페이지",
+              "post": "",
+              "put": "",
+              "delete": ""
+        }
+      }
+    ]
+  },
+
+
+
+  {
+    "id" : "/users",
+    "description": "회원정보관리",
+    "resource" : [
+      {
+        "api" : "/me",
+        "type" : {
+              "get": "내정보",
+              "post": "회원가입",
+              "put": "내정보변경",
+              "delete": "회원탈퇴"
+        }
+      },
+      {
+        "api" : "/confirm",
+        "type" : {
+              "get": "로그아웃",
+              "post": "로그인",
+              "put": "",
+              "delete": ""
+        }
+      }
+    ]
+  },
+
+
+
+  {
+    "id" : "/teams",
+    "description": "팀관리",
+    "resource" : [
+      {
+        "api": "/info/:{id}",
+        "type": {
+          "get": "해당 팀의 멤버리스트",
+          "post": "",
+          "put": "정보수정",
+          "delete": "삭제"
+        }
+      },
+      {
+        "api": "/add",
+        "type": {
+          "get": "",
+          "post": "팀생성",
+          "put": "",
+          "delete": ""
+        }
+      }
+    ]
+  },
+
+
+
+  {
+    "id" : "/topic",
+    "description" : "토픽관리",
+    "resource" : [
+      {
+        "api" : "/info/:{id}",
+        "type" : {
+          "get" : "해당 토픽 정보",
+          "post" : "",
+          "put" : "토픽수정",
+          "delete" : "토픽삭제"
+        }
+      }
+    ]
+  }
+
+
+
+]
