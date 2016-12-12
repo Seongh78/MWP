@@ -1,0 +1,44 @@
+.circle{
+    border-radius: 100%;
+}
+
+/*=================*/
+
+.bottom-bar{
+    background: #F9F9F9;
+    width: 100%;
+    height: 50px;
+    /*border-top: 1px solid #DfDfDf;*/
+    position: fixed;
+    bottom: 0;
+    box-shadow:0 1px 5px 1px rgba(0,0,0,  0.5);
+    z-index: 98;
+}
+
+.bottomBar-ul{
+    display: flex;
+    padding: 0;
+}
+.bottomBar-list{
+    display: inline-block;
+    position: relative;
+    flex: 2.5;
+    /*width: calc(100% / 4);*/
+    text-align: center;
+    list-style: none;
+    font-size: 0.75em;
+    font-weight:bold;
+    opacity: 0.75;
+    border-right: 1px solid #e0e0e0;
+}
+    .bottomBar-list:hover{
+        background: #d0d0d0;
+        cursor: pointer;
+    }
+    .bottomBar-list:last-child{
+        border: none;
+    }
+    .bottomBar-list  .material-icons{
+        font-size: 1.35em;
+        margin: 10px 0 5px 0;
+    }
