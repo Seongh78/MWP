@@ -1,0 +1,22 @@
+<% if(projects[0] === undefined ){ %>
+<div style="text-align: center; padding-top:200px;">
+    <h1><i class="material-icons" style="font-size: 3.5em; opacity: 0.45; margin-bottom:50px;">sentiment_very_dissatisfied</i></h1>
+    <p style="font-size: 1.25em; opacity: 0.45;">아직 프로젝트가 없네요</p>
+    <button class="btn btn-primary px-xl" style="font-size: 1.45em;" onclick="location.href='/project/add'">프로젝트 생성</button>
+</div>
+<% }else{ %>
+<div class="row" style="padding:5px;">
+    <%
+    projects.forEach(function(team){
+    %>
+        <div class="card" style="padding: 10px 12px 3px 12px;" onclick="location.href='/project/topic/<%=team.id%>'">
+            <h4><%=team.title%></h4>
+
+            <p>팀장: David Kim / 인원: 5명 </p>
+        </div>
+    <%
+    });
+    %>
+</div>
+<button class="btn btn-primary small" style=" width:100%;" onclick="location.href='/project/add'">프로젝트 생성</button>
+<% } %>

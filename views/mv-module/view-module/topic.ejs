@@ -1,54 +1,49 @@
-<%
-var chat = [
-    {
-        usr_id: "admin01",
-        usr_name: "David Kim",
-        usr_img: "https://assets.servedby-buysellads.com/p/manage/asset/id/26626",
-        comment: "Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis."
-    },
-    {
-        usr_id: "tester005",
-        usr_name: "Eric sweet",
-        usr_img: "https://assets.servedby-buysellads.com/p/manage/asset/id/26626",
-        comment: "Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis."
-    },
-    {
-        usr_id: "smrmrmsm",
-        usr_name: "김정박",
-        usr_img: "https://assets.servedby-buysellads.com/p/manage/asset/id/26626",
-        comment: "Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis."
-    },
-    {
-        usr_id: "seongh",
-        usr_name: "성훈 킴",
-        usr_img: "https://assets.servedby-buysellads.com/p/manage/asset/id/26626",
-        comment: "Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis."
-    },
-    {
-        usr_id: "admin03",
-        usr_name: "David Kim",
-        usr_img: "https://assets.servedby-buysellads.com/p/manage/asset/id/26626",
-        comment: "Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis."
-    }
-
-];
-
-%>
-
-<div class="row" style="margin: 0; padding: 0;">
-
+<section class="row" style="margin: 0; padding: 0;">
     <%
-    chat.forEach(function(con){
+    var chch = [
+        {
+            usr_id: "admin01",
+            usr_name: "David Kim",
+            usr_img: "https://assets.servedby-buysellads.com/p/manage/asset/id/26626",
+            comment: "Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis."
+        },
+        {
+            usr_id: "tester005",
+            usr_name: "Eric sweet",
+            usr_img: "https://assets.servedby-buysellads.com/p/manage/asset/id/26626",
+            comment: "Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis."
+        },
+        {
+            usr_id: "smrmrmsm",
+            usr_name: "김정박",
+            usr_img: "https://assets.servedby-buysellads.com/p/manage/asset/id/26626",
+            comment: "Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis."
+        },
+        {
+            usr_id: "seongh",
+            usr_name: "성훈 킴",
+            usr_img: "https://assets.servedby-buysellads.com/p/manage/asset/id/26626",
+            comment: "Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis."
+        },
+        {
+            usr_id: "admin03",
+            usr_name: "David Kim",
+            usr_img: "https://assets.servedby-buysellads.com/p/manage/asset/id/26626",
+            comment: "Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis."
+        }
+
+    ];
+    chch.forEach(function(co){
     %>
-    <div class="media">
+    <section class="media">
         <a class="media-left" href="#">
-            <img class="media-object circle" width="50" height="50" src="<%=con.usr_img%>" alt="Generic placeholder image">
+            <img class="media-object circle" width="50" height="50" src="<%=co.usr_img%>" alt="Generic placeholder image">
         </a>
-        <div class="media-body">
-            <h4 class="media-heading"><%=con.usr_name%><small><%=con.usr_id%></small></h4>
-            <p><%=con.comment%></p>
-        </div>
-    </div>
+        <section class="media-body">
+            <h4 class="media-heading"><%=co.usr_name%><small><%=co.usr_id%></small></h4>
+            <p><%=co.comment%></p>
+        </section>
+    </section>
 
     <hr style="opacity: 0.3;">
     <%
@@ -56,4 +51,4 @@ var chat = [
     %>
 
 
-</div>
+</section>

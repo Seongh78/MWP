@@ -1,0 +1,24 @@
+<h1>TEST PAGE</h1>
+<article>
+<%
+var a= [{a:1}, {a:2}, {a:3}];
+//for(var i=0; i< a.length; i++) {
+a.forEach(function(aa){
+
+
+%>
+<section>
+    <a class="media-left" href="#">
+        <img class="media-object circle" width="50" height="50" src="https://assets.servedby-buysellads.com/p/manage/asset/id/26626" alt="Generic placeholder image">
+    </a>
+    <section class="media-body">
+        <h4 class="media-heading">David Kim<small><%=aa.a%></small></h4>
+        <p>https://assets.servedby-buysellads.com/p/manage/asset/id/26626</p>
+    </section>
+</section>
+
+<hr style="opacity: 0.3;">
+<%
+});
+%>
+</article>

@@ -3,62 +3,89 @@
 <%- include("mv-module/head.ejs"); %>
 
 
-
-<body class="doc-body" id="doc_index_body">
+<body class="doc-body tab tabWrap" id="doc_index_body">
 
 
 <!-- Nav & side bar -->
 <%- include("mv-module/nav.ejs"); %>
 
 <!-- Page title -->
-<%- include("mv-module/page-title.ejs" , {title: title}); %>
+<%- include("mv-module/page-title.ejs"); %>
 
 
 
-<main class="doc-main" id="doc_index_main" role="main" style="padding: 10px 5px 50px 5px; margin: 0;">
-  <div class="container">
+
 
   <%
-  //switch
+
+  switch(mode){
+        case "Projects":
+        %>
+        <main class="doc-main" id="doc_index_main" role="main" style="">
+          <div class="container">
+            <%- include("mv-module/view-module/project.ejs" , {projects:projects}); %>
+          </div>
+        </main>
+        <%
+        break;
+        case "AddProject":
+        %>
+        <main class="doc-main" id="doc_index_main" role="main" style="">
+            <div class="container">
+                <% include mv-module/view-module/addProject.ejs %>
+            </div>
+        </main>
+        <%
+        break;
+
+        case "Topic":
+        case "Chat":
+        case "Team":
+        case "My":
+        %>
+        <main class="doc-main" id="doc_index_main" role="main" style="">
+          <div class="container">
+
+              <div class="tabContent">
+
+                  <div class="tabItem activeTab">
+                    <% include mv-module/view-module/topic.ejs %>
+                  </div>
+                  <div class="tabItem">
+                    <% include mv-module/view-module/chatlist.ejs %>
+                  </div>
+                  <div class="tabItem"><h1>Team</h1></div>
+                  <div class="tabItem"><h1>My</h1></div>
+
+              </div>
+
+          </div>
+        </main>
+        <%- include("mv-module/btm-bar.ejs"); %>
+        <%
+        break;
+  } //switch close
+
   %>
-  <%- include("mv-module/view-module/topic.ejs"); %>
-  <%
-  //switch close
-  %>
-
-  </div>
-</main>
-
-
-
-<%
-switch (mode){
-  case "topic":
-%>
-<%- include("mv-module/btm-bar.ejs"); %>
-<%
-  break;
-  case "":
-  break;
-  default:
-  break;
-}
-%>
 
 
 
 
-<!-- js -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js"></script>
-<script src="mobile-ver/js/material.min.js"></script>
-<script src="mobile-ver/js/project.min.js"></script>
 
-<!-- angular -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
-<script type="text/javascript" src="mobile-ver/js/jandiApp.js"></script>
 
+
+
+
+
+
+
+<script type="text/javascript">
+  $(function() {
+    $('.tabWrap').tab();
+  });
+
+
+</script>
 
 
 </body>

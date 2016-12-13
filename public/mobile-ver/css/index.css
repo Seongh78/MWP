@@ -2,7 +2,26 @@
     border-radius: 100%;
 }
 
+a:link{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+a:active{
+    text-decoration: none;
+}
+a:visited{
+    text-decoration: none;
+}
+
 /*=================*/
+
+.doc-main{
+    padding: 10px 5px 50px 5px;
+    margin: 0;
+}
+
 
 .bottom-bar{
     background: #F9F9F9;
@@ -31,10 +50,7 @@
     opacity: 0.75;
     border-right: 1px solid #e0e0e0;
 }
-    .bottomBar-list:hover{
-        background: #d0d0d0;
-        cursor: pointer;
-    }
+
     .bottomBar-list:last-child{
         border: none;
     }
@@ -42,3 +58,16 @@
         font-size: 1.35em;
         margin: 10px 0 5px 0;
     }
+
+    .bottom-button{
+        color:#a0a0a0;
+    }
+    .bottomBar-list-active{
+        background: #d0d0d0;
+        color:#333;
+        cursor: pointer;
+    }
+
+
+.tabContent > div { display: none; }
+.tabContent .activeTab { display: block; }

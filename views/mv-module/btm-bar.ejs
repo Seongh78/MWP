@@ -1,23 +1,48 @@
-<div class="bottom-bar">
+<!--<div class="bottom-bar">
     <ul class="bottomBar-ul">
-        <li class="bottomBar-list">
+        <li class="bottomBar-list bottom-button<% if(title==="TOPIC"){ %>-active<% }%>" onclick="location.href='/project/topic/tema01'">
             <i class="material-icons pt-xs">assignment</i>
             <p>TOPIC</p>
         </li>
-        <li class="bottomBar-list">
+        <li class="bottomBar-list bottom-button<% if(title==="CHAT"){ %>-active<% }%>" onclick="location.href='/project/chat'">
             <i class="material-icons pt-xs">forum</i>
             <p>CHAT</p>
         </li>
-        <li class="bottomBar-list">
+        <li class="bottomBar-list bottom-button<% if(title==="TEAM"){ %>-active<% }%>" onclick="location.href='/project/team'">
             <i class="material-icons pt-xs">people</i>
             <p>TEAM</p>
         </li>
-        <li class="bottomBar-list">
+        <li class="bottomBar-list bottom-button<% if(title==="MY"){ %>-active<% }%>" onclick="location.href='/project/my'">
             <i class="material-icons pt-xs">account_circle</i>
+            <p>MY</p>
+        </li>
+    </ul>
+</div>-->
+
+<div class="bottom-bar">
+    <ul class="bottomBar-ul">
+        <li class="bottomBar-list bottom-button activeTab bottomBar-list-active">
+            <i class="material-icons pt-xs">assignment</i>
+            <p>TOPIC</p>
+        </li>
+        <li class="bottomBar-list bottom-button">
+            <i class="material-icons pt-xs">forum</i>
+            <p>CHAT</p>
+        </li>
+        <li class="bottomBar-list bottom-button">
+            <i class="material-icons pt-xs">people</i>
             <p>TEAM</p>
+        </li>
+        <li class="bottomBar-list bottom-button">
+            <i class="material-icons pt-xs">account_circle</i>
+            <p>MY</p>
         </li>
     </ul>
 </div>
+
+
+
+
 <!--
 ICON FONTS
 https://material.io/icons/#ic_description
