@@ -1,0 +1,49 @@
+<article ng-controller="MemberCtrl">
+<section class="row" style="margin:10px 0 0 0; padding: 0;" id="members" ng-repeat="mem in members">
+	
+	<section class="media card" style="padding:7px;">
+        <!-- <a href=""> -->
+            <a class="media-left" >
+                <img class="media-object circle" width="65" height="65" src="{{mem.img}}" alt="Generic placeholder image">
+            </a>
+            <section class="media-body">
+                <h4 class="media-heading">{{mem.name}}</h4>
+                <p>{{mem.id}}</p>
+            </section>
+        <!-- </a> -->
+        </section>
+
+</section>
+
+<button id="" ng-click="addFrm('')" class="btn-primary circle" style="position: fixed; bottom: 67px; right: 10px; width: 55px; height: 55px; box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.5); color:#fff; border:none;"><i class="material-icons">person_add</i></button>
+
+
+<section id="newMemberFrm" style="position: fixed; display: none; background-color:rgba(255,255,255,0.96); width: 100%; height: 100%; top:0; left:0; z-index: 99; padding:5%;">
+
+    <form class="form" id="newTopic" ng-submit="skTest()">
+    <table style="width: 100%;">
+        <tr>
+            <td style="width: 10%; padding-top: 0;">
+                <i class="material-icons">person</i>
+                <!-- <input type="file" name="newTopic_img" style="display: none;"> -->
+            </td>
+            <td>
+            <input type="text" name="searchid" class="form-control"  ng-model="searchid" style="padding:5%; font-size: 1.45em;"   placeholder="아이디를 입력해 주세요">
+        </td>
+        </tr>
+    </table>
+    <ul ng-repeat="fin in findList" style="font-size: 1.25em; margin-top: 20px;">
+    	<li  style="list-style: none; width: 100%; clear: both;" ng-click="request(fin.usr_id)">
+    		<img src="{{fin.usr_img}}" class="circle" width="50" height="50" alt="">
+    		<span>{{fin.usr_name}}</span>
+    		<!-- <i class="material-icons">sms</i> -->
+    		<i class="material-icons" style="font-size: 2em; margin: 20px 4px 0 0; float: right;">person_add</i>
+    	</li>
+    </ul>
+    </form>
+    
+    <h4 style="position: absolute; top:1%; right: 3%; color:gray; font-size: 0.8em;" ng-click="addFrm('none')">CLOSE  X</h4>
+
+
+</section>
+</article>

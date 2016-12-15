@@ -1,54 +1,74 @@
-<section class="row" style="margin: 0; padding: 0;">
-    <%
-    var chch = [
-        {
-            usr_id: "admin01",
-            usr_name: "David Kim",
-            usr_img: "https://assets.servedby-buysellads.com/p/manage/asset/id/26626",
-            comment: "Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis."
-        },
-        {
-            usr_id: "tester005",
-            usr_name: "Eric sweet",
-            usr_img: "https://assets.servedby-buysellads.com/p/manage/asset/id/26626",
-            comment: "Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis."
-        },
-        {
-            usr_id: "smrmrmsm",
-            usr_name: "김정박",
-            usr_img: "https://assets.servedby-buysellads.com/p/manage/asset/id/26626",
-            comment: "Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis."
-        },
-        {
-            usr_id: "seongh",
-            usr_name: "성훈 킴",
-            usr_img: "https://assets.servedby-buysellads.com/p/manage/asset/id/26626",
-            comment: "Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis."
-        },
-        {
-            usr_id: "admin03",
-            usr_name: "David Kim",
-            usr_img: "https://assets.servedby-buysellads.com/p/manage/asset/id/26626",
-            comment: "Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis."
-        }
+<article ng-controller="NewTopicCtrl">
+<section class="row" style="margin:10px 0 0 0; padding: 0;" id="topicList" ng-repeat="top in topics">
 
-    ];
-    chch.forEach(function(co){
-    %>
-    <section class="media">
-        <a class="media-left" href="#">
-            <img class="media-object circle" width="50" height="50" src="<%=co.usr_img%>" alt="Generic placeholder image">
-        </a>
-        <section class="media-body">
-            <h4 class="media-heading"><%=co.usr_name%><small><%=co.usr_id%></small></h4>
-            <p><%=co.comment%></p>
+        <section class="media" ng-click="move('/topic/view/top.id')">
+        <!-- <a href=""> -->
+            <a class="media-left" >
+                <img class="media-object circle" width="50" height="50" src="{{top.usrImg}}" alt="Generic placeholder image">
+            </a>
+            <section class="media-body">
+                <h4 class="media-heading">{{top.usrName}}</h4>
+                <p>{{top.contents}}</p>
+                <small style="color:#CCCCCC;">{{top.date}}</small>
+            </section>
+        <!-- </a> -->
         </section>
-    </section>
+        <hr style="opacity: 0.3;">
 
-    <hr style="opacity: 0.3;">
-    <%
-    });
-    %>
+</section>
+
+
+<section id="newTopicForm" style="position: fixed; display: none; background-color:rgba(255,255,255,0.96); width: 100%; height: 100%; top:0; left:0; z-index: 99; padding:5%;">
+
+    <form class="form" id="newTopic" ng-submit="skTest()">
+    <table style="width: 100%;">
+        <tr>
+            <td style="width: 10%; padding-top: 0;">
+                <i class="material-icons">camera_alt</i>
+                <!-- <input type="file" name="newTopic_img" style="display: none;"> -->
+            </td>
+            <td><textarea name="newTopic_contents" class="form-control" id="newTopicText" ng-model="newTopicText" style="padding:5%; font-size: 1.45em;" name="newTopic" rows="1" placeholder="새 소식을 올려주세요">새 소식을 올려주세요</textarea>
+        </td>
+        </tr>
+    </table>
+    <button type="submit" id="sendBtn" class="btn btn-primary" style="width: 100%; display: none; margin-top: 10px;">send</button>
+    </form>
+    
+    <h4 style="position: absolute; top:1%; right: 3%; color:gray; font-size: 0.8em;" id="newTopicClose">CLOSE  X</h4>
 
 
 </section>
+<button id="newTopicBtn" class="btn-primary circle" style="position: fixed; bottom: 67px; right: 10px; width: 55px; height: 55px; box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.5); color:#fff; border:none;"><i class="material-icons">edit</i></button>
+
+
+</article>
+<script>
+
+    $('#newTopicText').focus(function () {
+        $(this).attr('rows', '2');
+        if( $(this).val() === "새 소식을 올려주세요" ){
+            $(this).val('');
+        }
+        $('#sendBtn').css('display','');
+    });
+    $('#newTopicText').focusout(function () {
+        if( $(this).val() === "" ){
+            $(this).val('새 소식을 올려주세요');
+            $(this).attr('rows', '1');
+            $('#sendBtn').css('display','none');
+        }
+    });
+    $('#newTopicBtn').click(function(argument) {
+        $('#newTopicForm').css('display','');
+    });
+    $('#newTopicClose').click(function(argument) {
+        $('#newTopicForm').css('display','none');
+    });
+
+
+    $('#sendBtn').click(function() {
+        $(this).addClass("disabled");
+        $('#newTopicForm').css('display','none');
+    });
+
+</script>

@@ -88,3 +88,27 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+
+
+
+
+// socket.io
+io = require('socket.io')(server);
+io.sockets.on("connection" , function (socket) {
+      
+      // socket.emit
+      console.log("On connection");
+
+      socket.on('insert' , function (data) {
+          var dd = {
+            // usr:socket.session.usr,
+            text: data.text
+          }
+          console.log("in insert data: "+data.text);
+          // console.log("usr data: "+dd.usr);
+          socket.emit('rs', {data:dd});
+          // io.emit();
+      });
+
+});

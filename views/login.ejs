@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="jandiApp">
+<%- include("mv-module/head.ejs"); %>
+
+
+<body style="padding:25% 15%; text-align: center;" ng-controller="LoginCtrl">
+
+
+<h1><i class="material-icons has-success">format_quote</i></h1>
+<h1>JANDI</h1>
+
+<form id="usrFrm" ng-submit="usrChk()" style="margin-top: 20%;">
+
+<div id="frmId" class="form-group">
+  <!-- <label class="form-control-label" for="inputSuccess1">Input with success</label> -->
+  <input type="text" class="form-control " placeholder="Your e-mail" ng-model="usr_id" id="usr_id">
+  <!-- <div class="form-control-feedback">Success! You've done it.</div> -->
+  <!-- <small class="form-text text-muted">Example help text that remains unchanged.</small> -->
+</div>
+
+<div id="frmPassword" class="form-group">
+  <!-- <label class="form-control-label" for="inputSuccess1">Input with success</label> -->
+  <input type="password" placeholder="Your assword" class="form-control " ng-model="usr_pwd" id="usr_pwd">
+  <!-- <div class="form-control-feedback">Success! You've done it.</div> -->
+</div>
+<br>
+<button type="button" id="signUp" onclick="sign('up')" class="btn btn-default">Sign up</button>
+<button type="submit" id="signIn" ng-submit onclick="sign('in')" class="btn btn-success" style="color:#fff;">Sign in</button>
+
+</form>
+
+<script>
+
+	function sign(mode) {
+		if(mode === "up"){
+			alert("go sign-up page");
+			return;
+		}else{
+			var usrFrm = $('#usrFrm').serialize();
+			if(usrFrm.usr_id === "admin"){
+				// $('#signIn').
+			}
+		}
+	}
+</script>
+
+
+</body>
+</html>

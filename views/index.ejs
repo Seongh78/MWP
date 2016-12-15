@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="jandiApp">
+<html ng-app="jandiApp">
 <%- include("mv-module/head.ejs"); %>
 
 
 <body class="doc-body tab tabWrap" id="doc_index_body">
 
-
 <!-- Nav & side bar -->
-<%- include("mv-module/nav.ejs"); %>
+<% include mv-module/nav.ejs %>
 
 <!-- Page title -->
 <%- include("mv-module/page-title.ejs"); %>
-
-
 
 
 
@@ -23,7 +20,7 @@
         %>
         <main class="doc-main" id="doc_index_main" role="main" style="">
           <div class="container">
-            <%- include("mv-module/view-module/project.ejs" , {projects:projects}); %>
+            <% include mv-module/view-module/project.ejs %>
           </div>
         </main>
         <%
@@ -33,6 +30,15 @@
         <main class="doc-main" id="doc_index_main" role="main" style="">
             <div class="container">
                 <% include mv-module/view-module/addProject.ejs %>
+            </div>
+        </main>
+        <%
+        break;
+        case "ViewTopic":
+        %>
+        <main class="doc-main" id="doc_index_main" role="main" style="">
+            <div class="container">
+                <h1>View Topic</h1>
             </div>
         </main>
         <%
@@ -54,8 +60,12 @@
                   <div class="tabItem">
                     <% include mv-module/view-module/chatlist.ejs %>
                   </div>
-                  <div class="tabItem"><h1>Team</h1></div>
-                  <div class="tabItem"><h1>My</h1></div>
+                  <div class="tabItem">
+                    <% include mv-module/view-module/member.ejs %>
+                  </div>
+                  <div class="tabItem">
+                    <% include mv-module/view-module/my.ejs %>
+                  </div>
 
               </div>
 
@@ -72,13 +82,6 @@
 
 
 
-
-
-
-
-
-
-
 <script type="text/javascript">
   $(function() {
     $('.tabWrap').tab();
@@ -86,7 +89,6 @@
 
 
 </script>
-
 
 </body>
 </html>

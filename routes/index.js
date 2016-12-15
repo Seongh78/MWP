@@ -5,35 +5,31 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-  var mode;
-  if(req.session.user === undefined){
-      mode = "Login";
+  var mode, view='index';
+  
+  if(req.session.usr === undefined){
+      res.redirect("/users/login");
+
   }else{
-      mode = "Projects";
-  }
+    var sql = "select P.pro_id as proId, P.pro_name as proName, P.pro_date as proDate from project P, team T where T.usr_id=? and P.pro_id=T.pro_id";
 
-  res.render('index', {
-            mode: "Projects",
-            pro_name: "",
-            title: "Choose team",
-            projects: teams
-  });
+    connection.query(sql , req.session.usr.id , function(err, result) {
+        res.render("index", {
+                  mode: "Projects",
+                  pro_name: "",
+                  title: "Choose team",
+                  projects: result,
+                  usr: req.session.usr
+        });//render
 
-});
+    }); // connection
+
+  } // else
+
+}); // router
 
 
-var teams = [
-    {
-        "id" : "team01",
-        "title" : "IOS 프로젝트",
-        "discription" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-    },
-    {
-        "id" : "team02",
-        "title" : "Android 프로젝트",
-        "discription" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-    }
-];
+
 
 
 module.exports = router;

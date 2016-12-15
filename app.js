@@ -6,20 +6,21 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var session = require('express-session');
-
+var fileUpload = require('express-fileupload');
 
 connection = mysql.createConnection({
-  host : '10.0.0.1',
-  user : 'seongh7800',
-  password : 'nser123321321123',
+  host : 'localhost',
+  user : 'root',
+  password : 'apmsetup',
   port : 3306,
-  database : 'seongh7800'
+  database : 'jandi'
 });
 
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var project = require('./routes/project');
+var topic = require('./routes/topic');
 
 var app = express();
 
@@ -39,15 +40,17 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   cookie: {
-    maxAge: (1000*60) * 120
+    maxAge: (1000*60) * 240
   }
 }));
 
+app.use(fileUpload());
 
 
 app.use('/', index);
 app.use('/users', users);
 app.use('/project', project);
+app.use('/topic', topic);
 
 
 
@@ -69,5 +72,14 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
+
+
+
+
+
+
 
 module.exports = app;

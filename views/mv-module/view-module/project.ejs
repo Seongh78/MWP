@@ -7,12 +7,12 @@
 <% }else{ %>
 <div class="row" style="padding:5px;">
     <%
-    projects.forEach(function(team){
+    projects.forEach(function(pro){
     %>
-        <div class="card" style="padding: 10px 12px 3px 12px;" onclick="location.href='/project/topic/<%=team.id%>'">
-            <h4><%=team.title%></h4>
+        <div class="card" style="padding: 10px 12px 3px 12px;" onclick="location.href='/project/topic/<%=pro.proId%>/<%=pro.proName%>'">
+            <h4><%=pro.proName%></h4>
 
-            <p>팀장: David Kim / 인원: 5명 </p>
+            <!-- <p>팀장: David Kim / 인원: 5명 </p> -->
         </div>
     <%
     });
